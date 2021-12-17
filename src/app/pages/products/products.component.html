@@ -1,0 +1,30 @@
+<div class="productsView">
+  <div *ngIf="productsFiltered$ | async as products">
+    <nav class="navToolbar" mat-tab-nav-bar backgroundColor="primary">
+      <a
+        color="primary"
+        mat-tab-link
+        *ngFor="let type of productTypes"
+        (click)="onNav(type)"
+      >
+        {{ type }}
+      </a>
+    </nav>
+
+    <div >
+      <app-product-list [products]="pageSlice"></app-product-list>
+
+    </div>
+
+    <footer>
+      <mat-paginator
+        class="paginator"
+        [length]="products.length"
+        [pageSize]="currentSize"
+        [pageSizeOptions]="[4, 8, 10]"
+        (page)="onPageChange($event)"
+      >
+      </mat-paginator>
+    </footer>
+  </div>
+</div>

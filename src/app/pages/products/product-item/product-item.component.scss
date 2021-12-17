@@ -1,0 +1,53 @@
+
+
+
+mat-card{
+
+
+  padding: 10px;
+
+}
+mat-card-header{
+  height: 45px;
+  display: flex;
+  justify-content:  center;
+  padding-top: 2px;
+  padding-bottom: 3px;
+  font-size: large;
+
+}
+
+
+mat-card-content{
+  padding-top: 2px;
+
+}
+
+
+
+.product-info{
+
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+
+}
+
+.spacer{
+  flex-grow: 1;
+}
+
+
+
+.action-item{
+  width: auto;
+  max-width: 120px;
+
+}
+
+ button{
+  border-radius: 10px;
+  height: 50px;
+  width: 50px;
+ }
+

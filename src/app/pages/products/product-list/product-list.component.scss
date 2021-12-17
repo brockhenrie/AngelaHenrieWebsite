@@ -1,0 +1,33 @@
+.productView {
+
+  top: 112px;
+}
+
+.productImage {
+  width: 100%;
+  height: auto;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.info{
+  padding-top: 5px;
+
+};
+
+.quantity{
+width: 25%;
+}
+
+.action-item{
+ padding-bottom: 20px;
+  width: 25%;
+}
+
+mat-card{
+  min-width: 100%;
+}

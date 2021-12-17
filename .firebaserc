@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angela-henrie": {
+      "hosting": {
+        "website": [
+          "angela-henrie"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angela-henrie"
+  }
+}

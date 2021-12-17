@@ -1,0 +1,61 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Add a Product</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="newProduct" (ngSubmit)="onAddNewProduct()">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Product Type</mat-label>
+        <mat-select  formControlName="productType">
+          <mat-option *ngFor="let productType of productTypes; let i = index;" [value]="productTypes[i]">
+            {{productTypes[i]}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Quantity</mat-label>
+        <input type="number" formControlName="quantity" class="right-align"  matInput>
+        <span matPrefix>#</span>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Size</mat-label>
+        <input formControlName="size" class="right-align" matInput>
+        <span matPrefix>#</span>
+      </mat-form-field>
+
+
+
+      <mat-form-field appearance="fill" floatLabel="always">
+        <mat-label>Price</mat-label>
+        <input matInput  formControlName="price" type="number" class="right-align" placeholder="0">
+        <span matPrefix>$&nbsp;</span>
+        <span matSuffix></span>
+      </mat-form-field>
+
+      <mat-form-field class="Sfull-width" appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+
+      <input #uploader class="ng-hide" id="image"  (change)="selectPhoto($event)" accept=".png,.jpg" type="file" />
+      <mat-progress-bar mode="determinate" [value]="uploadPercent | async "></mat-progress-bar>
+    </form>
+
+{{downloadUrl}}
+
+
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" type="submit" (click)="onAddNewProduct();">Add</button>
+  </mat-card-actions>
+
+</mat-card>
