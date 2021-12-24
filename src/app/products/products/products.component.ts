@@ -1,12 +1,9 @@
-import { ProductDataService } from './product-data.service';
+import { ProductDataService } from '../product-data.service';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
-import { Product } from './product-item/product.model';
+import { Product } from '../product.model';
 import { PageEvent } from '@angular/material/paginator';
-import {  BehaviorSubject, combineLatest, EMPTY, Observable, Subject, Subscription } from 'rxjs';
-import { catchError, map, tap, timeout} from 'rxjs/operators';
-import { nextTick } from 'process';
-import { appCheckInstanceFactory } from '@angular/fire/app-check/app-check.module';
+import {  BehaviorSubject, combineLatest } from 'rxjs';
+import { map, tap} from 'rxjs/operators';
 import { Title } from '@angular/platform-browser';
 
 @Component({

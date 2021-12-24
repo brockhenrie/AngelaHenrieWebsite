@@ -6,7 +6,7 @@ import * as firebase from 'firebase/compat';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError, finalize, map, shareReplay, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Product } from './product-item/product.model';
+import { Product } from './product.model';
 
 @Injectable({
   providedIn: 'root'

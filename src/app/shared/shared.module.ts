@@ -18,7 +18,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
-
+import { LayoutModule } from '@angular/cdk/layout';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 
@@ -48,6 +49,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatProgressBarModule,
     MatSelectModule,
     MatMenuModule,
+    LayoutModule,
+    MatGridListModule
 
 
   ],
@@ -69,8 +72,10 @@ import {MatMenuModule} from '@angular/material/menu';
     MatProgressBarModule,
     MatSelectModule,
     MatMenuModule,
+    LayoutModule,
+    MatGridListModule
   ]
 
 
 })
-export class UIModule{ }
+export class SharedModule{ }

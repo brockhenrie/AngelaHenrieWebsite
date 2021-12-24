@@ -18,15 +18,13 @@
 }
 
 mat-sidenav-content{
-  background-color: white;
-  height: 100%;
-  width: 100%;
+  background-color: #ffe7e7;
+ min-height: 100%;
+  min-width: 100%;
 }
 
 .navToolbar{
-  position:fixed;
-  top:0;
-  width: 100%;
+    width: 100%;
 }
 
 mat-card{
