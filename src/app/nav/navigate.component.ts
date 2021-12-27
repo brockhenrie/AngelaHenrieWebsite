@@ -1,5 +1,7 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
@@ -8,7 +10,16 @@ import { AuthService } from 'src/app/auth/auth.service';
   styleUrls: ['./navigate.component.scss']
 })
 export class NavigateComponent implements OnInit, OnDestroy{
-smallLogo = 'https://firebasestorage.googleapis.com/v0/b/angela-henrie.appspot.com/o/ProductPhotos%2FIMG_1502.jpg?alt=media&token=0a455c30-1700-4105-9756-7e7fbd82c921';
+
+
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
+
+
+smallLogo = 'https://firebasestorage.googleapis.com/v0/b/angela-henrie.appspot.com/o/IMG_1502.jpg?alt=media&token=8ad1694b-9f61-432a-9bd3-466bc752c01b';
   user$= this.auth.user$;
   isLoggedIn = false;
 
@@ -16,13 +27,14 @@ smallLogo = 'https://firebasestorage.googleapis.com/v0/b/angela-henrie.appspot.c
 
 
   links = [
-    {path: 'Home', icon: 'home'},
-    {path:'Products', icon: ''},
-    {path:'Cart', icon: 'shopping_cart'},
+    {path: 'home', icon: 'home', name:'Home'},
+    {path:'products', icon: '', name:'Products'},
+    {path:'cart', icon: 'shopping_cart', name:'Cart'},
   ];
 
 
   constructor(
+    private breakpointObserver: BreakpointObserver,
     private auth:AuthService) { }
 
   ngOnInit(): void {
@@ -30,7 +42,7 @@ smallLogo = 'https://firebasestorage.googleapis.com/v0/b/angela-henrie.appspot.c
       map(val => this.isLoggedIn = val)
     )
     .subscribe(val=>
-      console.log(val)
+      console.log("Logged in: "+ val)
     )
 
 

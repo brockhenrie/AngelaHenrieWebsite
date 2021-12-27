@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {path:'' , component: HomeComponent},
 
-  {path:'Home' , component: HomeComponent},
+  {path:'home' , component: HomeComponent},
   {
     path:'products',
     loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
@@ -32,6 +32,10 @@ const routes: Routes = [
   {
     path:'user',
     loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+  },
+  {
+    path:'cart',
+    loadChildren: () => import('./shopping-cart/shopping-cart.module').then(m => m.ShoppingCartModule)
   },
   {path:'**' , component: HomeComponent},
 ];

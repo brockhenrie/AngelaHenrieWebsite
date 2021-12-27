@@ -6,7 +6,8 @@ import { UserInfoComponent } from './user-info/user-info.component';
 
 
 const routes: Routes = [
-  {path: 'UserInfo', component: UserInfoComponent}
+  {path: '', component: UserInfoComponent},
+  {path: 'info', component: UserInfoComponent}
 ]
 
 @NgModule({

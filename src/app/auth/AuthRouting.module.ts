@@ -6,11 +6,9 @@ import { SignupComponent } from './signup/signup.component';
 
 
 const routes: Route[] = [
-  {path: 'Auth',
-  children: [
-    { path: 'signup', component: SignupComponent },
-    {path:'login', component: LoginComponent}
-  ]}
+  {path: 'auth'},
+  { path: 'signup', component: SignupComponent },
+  {path:'login', component: LoginComponent}
 
 ];
 

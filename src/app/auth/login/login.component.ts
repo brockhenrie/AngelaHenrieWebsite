@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'firebase/auth';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -15,9 +14,7 @@ export class LoginComponent implements OnInit {
   login =this.fb.group({
     email: ['', [Validators.required,Validators.email ]],
     password: ['', [Validators.required, Validators.minLength(8)]]
-  })
-
-
+  });
 
   authMode = 'Login';
 
@@ -36,10 +33,10 @@ export class LoginComponent implements OnInit {
   }
 
   signInGoogle(){
-    this.auth.signInGoogle()
-    if(true){
-      this.router.navigate(['/Home']);
-    }
+    this.auth.signInGoogle();
+
+      this.router.navigate(['/home']);
+
 
   }
 

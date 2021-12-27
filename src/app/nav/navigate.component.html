@@ -1,84 +1,165 @@
-<mat-sidenav-container class="container">
-  <mat-sidenav #sidenav mode="over">
-    <mat-toolbar   color="primary">
-      <button mat-button (click)="sidenav.toggle()">
-        <mat-icon>undo</mat-icon>
-      </button>
-      <h1>Angela Henrie</h1>
+
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>
+      <span>
+        <img class="logo"
+      style="padding-bottom: 2px; width: 100px; height: auto"
+      src="{{smallLogo}}"
+        />
+      </span>
     </mat-toolbar>
 
     <mat-nav-list>
       <a
         mat-list-item
-        (click)="sidenav.toggle()"
+
         [routerLink]="link.path"
         *ngFor="let link of links"
       >
-        {{ link.path }}
+        {{ link.name }}
         <button mat-icon-button>
           <mat-icon>{{ link.icon }}</mat-icon>
         </button>
       </a>
     </mat-nav-list>
   </mat-sidenav>
-  
-
   <mat-sidenav-content>
-    <mat-toolbar class="navToolbar" color="primary">
-      <button mat-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span class="spacer"></span>
 
-      <div>
+      <span class="spacer"></span>
+      <button mat-icon-button class="icon" *ngIf="isLoggedIn === true" [matMenuTriggerFor]="user">
         <img
-          style="padding-bottom: 2px; width: 100px; height: auto"
-          src="{{smallLogo}}"
-        />
-      </div>
-
-
-      <span class="spacer"></span>
-
-  <button mat-icon-button class="icon" *ngIf="isLoggedIn === true" [matMenuTriggerFor]="user">
-    <img
-    *ngIf="user$ | async as activeUser"
-      style="
-      border-radius: 100%;
-       width: 25px;
-       height: 25px"
-      src="{{ activeUser.photoURL }}"
-    >
-</button>
+        *ngIf="user$ | async as activeUser"
+          style="
+          border-radius: 100%;
+           width: 25px;
+           height: 25px"
+          src="{{ activeUser.photoURL }}"
+        >
+        </button>
 
 
 
-  <button *ngIf="isLoggedIn === false" mat-icon-button class="icon" [matMenuTriggerFor]="user">
-    <mat-icon>person</mat-icon>
-  </button>
+        <button *ngIf="isLoggedIn === false" mat-icon-button class="icon" [matMenuTriggerFor]="user">
+        <mat-icon>person</mat-icon>
+        </button>
 
+          <mat-menu #user="matMenu">
+            <button mat-menu-item *ngIf="isLoggedIn === false" [routerLink]="['/auth/login']">Login</button>
+            <button mat-menu-item *ngIf="isLoggedIn === false" [routerLink]="['/auth', 'signup']">Signup</button>
+            <button mat-menu-item>Orders</button>
+            <button mat-menu-item *ngIf="isLoggedIn === true" [routerLink]="['user/info']">Account Info</button>
+            <button mat-menu-item (click)="logout()">Logout</button>
+          </mat-menu>
 
-
-
-
-
-
-
-      <mat-menu #user="matMenu">
-        <button mat-menu-item *ngIf="isLoggedIn === false" [routerLink]="['/Auth/login']">Login</button>
-        <button mat-menu-item *ngIf="isLoggedIn === false" [routerLink]="['/Auth', 'signup']">Signup</button>
-        <button mat-menu-item>Orders</button>
-        <button mat-menu-item *ngIf="isLoggedIn === true" [routerLink]="['UserInfo']">Account Info</button>
-        <button mat-menu-item (click)="logout()">Logout</button>
-      </mat-menu>
-
-      <button [routerLink]="'Cart'" mat-icon-button class="icon favorite-icon">
-        <mat-icon>shopping_cart</mat-icon>
-      </button>
+          <button [routerLink]="'cart'" mat-icon-button class="icon favorite-icon">
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
     </mat-toolbar>
-
     <router-outlet></router-outlet>
-
-    <footer></footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+  <!-- <mat-sidenav-container class="container">
+    <mat-sidenav #sidenav mode="over">
+      <mat-toolbar   color="primary">
+        <button mat-button (click)="sidenav.toggle()">
+          <mat-icon>undo</mat-icon>
+        </button>
+
+      </mat-toolbar>
+
+      <mat-nav-list>
+        <a
+          mat-list-item
+          (click)="sidenav.toggle()"
+          [routerLink]="link.path"
+          *ngFor="let link of links"
+        >
+          {{ link.path }}
+          <button mat-icon-button>
+            <mat-icon>{{ link.icon }}</mat-icon>
+          </button>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+
+    <mat-sidenav-content>
+      <mat-toolbar class="navToolbar" color="primary">
+        <button mat-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+
+
+        <div>
+          <img
+            style="padding-bottom: 2px; width: 100px; height: auto"
+            src="{{smallLogo}}"
+          />
+        </div>
+
+
+        <span class="spacer"></span>
+
+      <button mat-icon-button class="icon" *ngIf="isLoggedIn === true" [matMenuTriggerFor]="user">
+      <img
+      *ngIf="user$ | async as activeUser"
+        style="
+        border-radius: 100%;
+         width: 25px;
+         height: 25px"
+        src="{{ activeUser.photoURL }}"
+      >
+      </button>
+
+
+
+      <button *ngIf="isLoggedIn === false" mat-icon-button class="icon" [matMenuTriggerFor]="user">
+      <mat-icon>person</mat-icon>
+      </button>
+
+
+
+
+
+
+
+
+        <mat-menu #user="matMenu">
+          <button mat-menu-item *ngIf="isLoggedIn === false" [routerLink]="['/Auth/login']">Login</button>
+          <button mat-menu-item *ngIf="isLoggedIn === false" [routerLink]="['/Auth', 'signup']">Signup</button>
+          <button mat-menu-item>Orders</button>
+          <button mat-menu-item *ngIf="isLoggedIn === true" [routerLink]="['UserInfo']">Account Info</button>
+          <button mat-menu-item (click)="logout()">Logout</button>
+        </mat-menu>
+
+        <button [routerLink]="'Cart'" mat-icon-button class="icon favorite-icon">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+      </mat-toolbar>
+
+
+      <router-outlet></router-outlet>
+
+      <footer></footer>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+ -->
+
+
