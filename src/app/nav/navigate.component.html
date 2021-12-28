@@ -25,13 +25,13 @@
 
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" class="navigationToolbar">
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
 
-   
+
 
 
       <span class="spacer"></span>
@@ -48,7 +48,12 @@
         <mat-icon>person</mat-icon>
       </button>
 
-      <mat-menu #user="matMenu">
+      <mat-menu
+        #user="matMenu"
+        xPosition="before"
+        panelClass="userMenu"
+        class="userMenu"
+        setElevation="100">
         <button mat-menu-item *ngIf="isLoggedIn === false" [routerLink]="['/auth', 'login']">Login</button>
         <button mat-menu-item *ngIf="isLoggedIn === false" [routerLink]="['/auth', 'signup']">Signup</button>
         <button mat-menu-item>Orders</button>
@@ -61,8 +66,10 @@
       </button>
       <span class="spacer"></span>
     </mat-toolbar>
+<ng-container>
+  <router-outlet></router-outlet>
+</ng-container>
 
-    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 

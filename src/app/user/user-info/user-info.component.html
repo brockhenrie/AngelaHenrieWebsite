@@ -1,6 +1,6 @@
-<mat-card *ngIf="user$ |async as user">
+<mat-card *ngIf="user">
     <mat-card-header>
-        <mat-card-title>{{user.displayName}}</mat-card-title>
+        <mat-card-title>{{user.name}}</mat-card-title>
     </mat-card-header>
     <div
      style="
@@ -8,7 +8,7 @@
      justify-content: center;
 
     ">
-      <img class="profilePic" src="{{user.photoURL}}">
+      <img class="profilePic" src="{{user.imageURL}}">
 
     </div>
     <mat-card-content>
@@ -18,7 +18,7 @@
         <p>1715 n 26th st </p>
     </mat-card-content>
     <mat-card-actions >
-        <button mat-button>Action1</button>
+        <button mat-button >Action1</button>
     </mat-card-actions>
     <mat-card-footer>
         Footer

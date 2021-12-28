@@ -18,15 +18,20 @@
 }
 
 mat-sidenav-content{
-
 min-height: 100%;
 min-width: 100%;
 }
 
-.navToolbar{
-  position: fixed;
-  z-index: 1;
+.navigationToolbar{
+
+  z-index: 1; /* Ensure that your app's content doesn't overlap the toolbar */
   width: 100%;
+}
+
+::ng-deep .userMenu{
+border-top-left-radius: 25px !important;
+border-bottom-right-radius: 25px !important;
+border-bottom-left-radius: 25px !important;
 }
 
 

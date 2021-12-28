@@ -1,12 +1,23 @@
-<div fxLayout="row wrap" fxLayoutGap=" 16px rgrid">
-  <div fxFlex="25%" fxFlex.md="50%" fxFlex.xs="100%" fxFlex.sm="33%">
-    <div *ngFor="let product of products">
+<div class="content">
+  <div
+  fxLayout="row wrap"
+  fxLayoutGap="16px grid"
+  >
+    <div
+    fxFlex="25%"
+    fxFlex.md="50%"
+    fxFlex.xs="100%"
+    fxFlex.sm="33%"
+    *ngFor="let product of products"
+    >
 
-      <mat-card>
-        <app-product-item [product]='product'></app-product-item>
-      </mat-card>
-
+      <app-product-item
+       [product]='product'
+       ></app-product-item>
 
     </div>
+
+
   </div>
+
 </div>
