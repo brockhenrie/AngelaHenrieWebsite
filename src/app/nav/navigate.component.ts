@@ -30,12 +30,16 @@ smallLogo = 'https://firebasestorage.googleapis.com/v0/b/angela-henrie.appspot.c
     {path: 'home', icon: 'home', name:'Home'},
     {path:'products', icon: '', name:'Products'},
     {path:'cart', icon: 'shopping_cart', name:'Cart'},
+    {path:'admin', icon: '', name: 'Admin'},
+    {path:'blog', icon: '', name: 'Blog'}
   ];
+
 
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private auth:AuthService) { }
+    private auth:AuthService,
+  ) { }
 
   ngOnInit(): void {
     this.auth.isLoggedIn$.pipe(

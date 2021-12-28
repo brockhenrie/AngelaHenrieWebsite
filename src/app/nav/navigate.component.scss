@@ -6,14 +6,10 @@
   right: 0;
 }
 
-.radio-group {
-  display: block;
-  border: 1px solid #555;
-  margin: 20px;
-  padding: 10px;
-}
+
 
 .logo{
+  padding-top: 8px;
   border-radius: 100%;
 }
 
@@ -22,20 +18,18 @@
 }
 
 mat-sidenav-content{
-  background-color: #ffe7e7;
- min-height: 100%;
-  min-width: 100%;
+
+min-height: 100%;
+min-width: 100%;
 }
 
 .navToolbar{
   position: fixed;
   z-index: 1;
-    width: 100%;
-}
-
-mat-card{
   width: 100%;
 }
+
+
 
 
 

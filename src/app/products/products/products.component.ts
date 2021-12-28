@@ -16,6 +16,14 @@ export class ProductsComponent implements OnInit {
   pageTitle = 'Angela Henrie - Products';
   productTypes= [''];
 
+  tabs = [
+    {label:'Products', route: 'list'},
+    {label:'Services', route:'list'},
+
+  ];
+  activeLinka = this.tabs[0].route;
+
+
   selectedProductType = "All";
   private typeSelectedSubject = new BehaviorSubject<string>(this.selectedProductType);
 
