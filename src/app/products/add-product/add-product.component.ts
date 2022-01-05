@@ -3,7 +3,7 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { finalize, tap } from 'rxjs/operators';
-import { ProductDataService } from '../product-data.service';
+import { ProductDataService } from '../../services/product-data.service';
 
 @Component({
   selector: 'app-add-product',

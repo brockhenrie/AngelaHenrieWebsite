@@ -3,6 +3,8 @@ import { AdminComponent } from './admin.component';
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProductControlComponent } from './product-control/product-control.component';
+import { EventTableComponent } from './event-table/event-table.component';
 
 const routes: Route[] = [
   {
@@ -20,11 +22,11 @@ const routes: Route[] = [
       },
       {
         path: 'products',
-        component: DashboardComponent, //change to correct component when created
+        component: ProductControlComponent, //change to correct component when created
       },
       {
-        path: 'orders',
-        component: DashboardComponent,
+        path: 'events',
+        component: EventTableComponent,
       },
       {
         path: 'users',

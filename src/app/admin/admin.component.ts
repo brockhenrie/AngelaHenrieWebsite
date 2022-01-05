@@ -1,3 +1,4 @@
+import { NgEventBus } from 'ng-event-bus';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
@@ -10,6 +11,7 @@ import { map } from 'rxjs/operators';
 export class AdminComponent implements OnInit {
   tabs = [
     {label:'Dashboard', route: 'dashboard'},
+    {label:'Events', route:'events'},
     {label:'Products', route:'products'},
     {label:'Orders', route:'orders'},
     {label: 'Users', route:'users'},
@@ -20,10 +22,13 @@ export class AdminComponent implements OnInit {
 
   tabLoadTimes: Date[] = [];
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor
+  (private breakpointObserver: BreakpointObserver,
+    private eventBus: NgEventBus  ) { }
 
   ngOnInit(): void {
   }
+
 
 
   getTimeLoaded(index: number) {

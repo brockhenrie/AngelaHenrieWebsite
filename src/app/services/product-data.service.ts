@@ -1,12 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, CollectionReference } from '@angular/fire/compat/firestore';
-import { AngularFireStorage, AngularFireStorageReference } from '@angular/fire/compat/storage';
-import * as firebase from 'firebase/compat';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { EMPTY, Observable } from 'rxjs';
-import { catchError, finalize, map, shareReplay, tap } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
-import { Product } from './product.model';
+import { catchError, shareReplay, tap } from 'rxjs/operators';
+import { Product } from '../products/product.model';
 
 @Injectable({
   providedIn: 'root'

@@ -1,4 +1,4 @@
-import { ProductDataService } from '../product-data.service';
+import { ProductDataService } from '../../services/product-data.service';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
 import { PageEvent } from '@angular/material/paginator';

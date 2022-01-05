@@ -1,10 +1,9 @@
 import { UserService } from './../user.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AuthModule } from 'src/app/auth/auth.module';
-import { AuthService } from 'src/app/auth/auth.service';
-import { Subject, Subscription } from 'rxjs';
+
+import { AuthService } from '../../services/auth.service';
+import { Subscription } from 'rxjs';
 import { User } from '../user.model';
-import { userInfo } from 'os';
 
 @Component({
   selector: 'app-user-info',

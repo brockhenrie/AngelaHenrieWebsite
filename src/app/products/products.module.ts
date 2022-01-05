@@ -1,7 +1,6 @@
 import { AddProductComponent } from './add-product/add-product.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProductRoutingModule } from './productRouting.module';
-import { ProductDataService } from './product-data.service';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -23,7 +22,7 @@ import { ProductsComponent } from './products/products.component';
     ProductRoutingModule
   ],
   providers:[
-    ProductDataService
+
   ],
   exports: [
     ProductsComponent,
