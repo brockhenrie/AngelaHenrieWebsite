@@ -140,6 +140,7 @@ export class AuthService implements OnInit, CanActivate {
             if(user){
               return true;
             } else{
+              this.router.navigate(['']);
               return false;
             }
           })

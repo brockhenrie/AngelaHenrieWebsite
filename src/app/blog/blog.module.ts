@@ -1,3 +1,4 @@
+import { BlogDataService } from './blog-data.service';
 import { BlogEditPostComponent } from './blog-edit-post/blog-edit-post.component';
 import { BlogCreatePostComponent } from './blog-create-post/blog-create-post.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
@@ -29,6 +30,9 @@ import { CommonModule } from '@angular/common';
     BlogPostComponent,
     BlogCreatePostComponent,
     BlogEditPostComponent
+  ],
+  providers: [
+    BlogDataService
   ]
 })
 export class BlogModule { }

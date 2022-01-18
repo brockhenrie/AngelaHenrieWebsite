@@ -1,4 +1,4 @@
-import { AuthService } from 'src/app/auth/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { BlogEditPostComponent } from './blog-edit-post/blog-edit-post.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
 import { BlogListComponent } from './blog-list/blog-list.component';

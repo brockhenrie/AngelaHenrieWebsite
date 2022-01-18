@@ -13,10 +13,8 @@ input.right-align {
   -moz-appearance: textfield;
 }
 
-form{
-  display: flex;
-  flex-direction: column;
 
-  align-items: center;
-  width: 250px;
+
+.mat-form-field {
+  margin-top: 16px;
 }
