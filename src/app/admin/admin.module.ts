@@ -1,3 +1,4 @@
+import { ProductsModule } from './../products/products.module';
 import { FormsModule } from '@angular/forms';
 import { AdminComponent } from './admin.component';
 import { SharedModule } from '../shared/shared.module';
@@ -5,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminRoutingModule } from './AdminRouting.module';
-import { ProductControlComponent } from './product-control/product-control.component';
+
 import { EventTableComponent } from './event-table/event-table.component';
 
 
@@ -15,20 +16,18 @@ import { EventTableComponent } from './event-table/event-table.component';
   declarations: [
     AdminComponent,
     DashboardComponent,
-    ProductControlComponent,
     EventTableComponent,
   ],
   imports: [
     CommonModule,
     SharedModule,
     AdminRoutingModule,
-    FormsModule
+    FormsModule,
+    ProductsModule
   ],
   exports: [
     AdminComponent,
-    DashboardComponent,
-    ProductControlComponent,
-
+    DashboardComponent
   ]
 })
 export class AdminModule { }

@@ -2,7 +2,8 @@ import { Injectable, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { EMPTY, Observable } from 'rxjs';
-import { catchError, shareReplay, tap } from 'rxjs/operators';
+import { catchError, finalize, shareReplay, tap } from 'rxjs/operators';
+import { pathToFileURL } from 'url';
 import { Product } from '../products/product.model';
 
 @Injectable({
@@ -10,11 +11,10 @@ import { Product } from '../products/product.model';
 })
 export class ProductDataService implements OnInit {
 
-  private productTypes = ['Necklace', 'Bracelets', 'Earings', 'Rings', 'Other','All'];
-// '../../../assets/photos/angela.jpg'
+  private productTypes = ['Necklace', 'Bracelets', 'Earrings', 'Rings', 'Other','All'];
+
   totalProducts!: string;
 
-  backgroundImage ='https://firebasestorage.googleapis.com/v0/b/angela-henrie.appspot.com/o/angela.jpg?alt=media&token=5fe77a07-1a39-4a85-915c-a9eb57918860';
 
   productsRef: AngularFirestoreCollection<Product> =this.firestore.collection<Product>('Products');
   products$: Observable<Product[]> = this.productsRef.valueChanges()
@@ -57,14 +57,13 @@ export class ProductDataService implements OnInit {
 
   }
 
-
-
   addProduct(product: Product) {
     // Persist a document id
-     product.id = this.totalProducts
+     product.id = this.firestore.createId();
     this.productsRef.add(product);
     console.log(product);
   }
+
   updateProduct(id:string,product: Product){
     this.productsRef.doc(id).update(product)
     .catch(err=>alert(err))
@@ -79,15 +78,15 @@ export class ProductDataService implements OnInit {
    .then(()=> alert("Product: "+id+" was deleted!"));
   }
 
-  getBackground(){
-    return this.backgroundImage;
-  }
 
-  uploadFile(event: any) {
-    const file = event.target.files[0];
-    const filePath = 'name-your-file-path-here';
-  }
 
+  uploadPhoto(imagePath: any, id:string) {
+    const filePath = '/ProductPhotos/' + id;
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, imagePath);
+
+    return fileRef;
+  }
 
 
 

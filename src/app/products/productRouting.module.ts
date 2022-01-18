@@ -1,3 +1,4 @@
+import { ProductControlComponent } from './product-control/product-control.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductsComponent } from './products/products.component';
 
@@ -10,11 +11,12 @@ import { ProductItemComponent } from './product-item/product-item.component';
 
 
 const routes: Routes = [
-  {path:'', component: ProductsComponent, children:[
+  {path:'',  children:[
     {path:'', redirectTo:'list', pathMatch:'full'},
-    {path:'list', component:ProductListComponent},
+    {path:'list', component:ProductsComponent},
     {path:'product/:id', component: ProductItemComponent},
     {path:'product/:id/edit', component: ProductItemComponent},
+    {path:'productControl', component: ProductControlComponent},
     {path:'addProduct', component:AddProductComponent },
   ]},
 

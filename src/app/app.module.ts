@@ -1,3 +1,4 @@
+import { MatDialog } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { FirebaseModule } from './firebase/firebase.module';
@@ -44,7 +45,8 @@ import { NgEventBus } from 'ng-event-bus';
 
   ],
   providers: [
-    NgEventBus
+    NgEventBus,
+    MatDialog
   ],
   bootstrap: [AppComponent]
 })

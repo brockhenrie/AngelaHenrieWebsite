@@ -12,7 +12,7 @@ export class AdminComponent implements OnInit {
   tabs = [
     {label:'Dashboard', route: 'dashboard'},
     {label:'Events', route:'events'},
-    {label:'Products', route:'products'},
+    {label:'Products', route:'products/productControl'},
     {label:'Orders', route:'orders'},
     {label: 'Users', route:'users'},
     {label:'Posts', route: 'posts'}

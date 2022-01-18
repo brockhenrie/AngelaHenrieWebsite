@@ -1,9 +1,10 @@
+import { ProductControlComponent } from '../products/product-control/product-control.component';
 import { AdminComponent } from './admin.component';
 
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProductControlComponent } from './product-control/product-control.component';
+
 import { EventTableComponent } from './event-table/event-table.component';
 
 const routes: Route[] = [
@@ -21,8 +22,9 @@ const routes: Route[] = [
         component: DashboardComponent,
       },
       {
-        path: 'products',
-        component: ProductControlComponent, //change to correct component when created
+        path:'products/productControl',
+        component: ProductControlComponent
+
       },
       {
         path: 'events',

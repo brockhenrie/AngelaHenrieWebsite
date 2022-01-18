@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card >
   <mat-card-header>
     <mat-card-title class="card-header">{{ product.name }}</mat-card-title>
   </mat-card-header>
@@ -11,12 +11,12 @@
       <div style="
         display: flex;
         flex-direction: row;
-        flex-wrap: nowrap">
+        flex-wrap: wrap">
         <p>Price: {{ product.price | currency: "USD" }}</p>
         <span class="spacer"></span>
-        <p *ngIf="product.oneOfOne === true">1of1</p>
+        <p *ngIf="product.oneOfOne === true">One of a kind!</p>
         <span class="spacer"></span>
-        <p>Stock: {{ product.quantity }}</p>
+        <p>Available: {{ product.quantity }}</p>
       </div>
     </div>
     <p>
@@ -26,26 +26,18 @@
   </mat-card-content>
 
   <mat-card-actions fxLayout="row" fxLayoutGap="5px">
-    <button fxFlex="auto" class="action-item" mat-raised-button color="primary">
+    <button fxFlex="25%" class="action-item" mat-raised-button color="primary">
       <mat-icon>add</mat-icon><mat-icon>shopping_cart</mat-icon>
     </button>
-    <button
-      fxFlex="auto"
-      size
-      class="action-item"
-      mat-raised-button
-      color="accent"
-    >
-      Edit<mat-icon>edit</mat-icon>
-    </button>
 
-    <mat-form-field fxFlex="33%">
+    <mat-form-field fxFlex="25%">
       <mat-label>Quantity</mat-label>
       <input matInput type="number" />
     </mat-form-field>
 
     <span class="spacer"></span>
+
+
   </mat-card-actions>
 
 </mat-card>
-
